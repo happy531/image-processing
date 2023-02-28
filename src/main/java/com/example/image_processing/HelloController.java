@@ -1,4 +1,4 @@
-package com.example.image_processing_2;
+package com.example.image_processing;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
