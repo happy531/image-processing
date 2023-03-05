@@ -1,6 +1,7 @@
 package com.example.image_processing;
 
 import javafx.application.Application;
+import javafx.scene.image.WritableImage;
 import javafx.stage.FileChooser;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
@@ -13,6 +14,9 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javafx.embed.swing.SwingFXUtils;
 
 public class HelloApplication extends Application {
 
@@ -50,6 +54,24 @@ public class HelloApplication extends Application {
         fileMenu.getItems().add(openBtn);
 
         MenuItem saveBtn = new MenuItem("Save");
+        saveBtn.setOnAction(e -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Save Image File");
+            FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.png");
+            fileChooser.getExtensionFilters().add(extFilter);
+            File file = fileChooser.showSaveDialog(stage);
+            if (file != null) {
+                try {
+                    double imageWidth = imageView.getBoundsInParent().getWidth();
+                    double imageHeight = imageView.getBoundsInParent().getHeight();
+                    WritableImage writableImage = new WritableImage((int) imageWidth, (int) imageHeight);
+                    imageView.snapshot(null, writableImage);
+                    ImageIO.write(SwingFXUtils.fromFXImage(writableImage, null), "png", file);
+                } catch (IOException ex) {
+                    System.out.println("Error saving image: " + ex.getMessage());
+                }
+            }
+        });
         fileMenu.getItems().add(saveBtn);
 
         Menu editMenu = new Menu("Edit");
