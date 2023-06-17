@@ -1,0 +1,212 @@
+Index: src/main/java/com/example/image_processing/ImageProcessingApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.image_processing;\n\nimport javafx.application.Application;\nimport javafx.scene.control.*;\nimport javafx.scene.image.*;\nimport javafx.scene.Scene;\nimport javafx.scene.control.Menu;\nimport javafx.scene.control.MenuBar;\nimport javafx.scene.control.MenuItem;\nimport javafx.scene.layout.VBox;\nimport javafx.scene.paint.Color;\nimport javafx.stage.Stage;\nimport javafx.stage.Modality;\n\npublic class ImageProcessingApplication extends Application {\n\n    private ImageView imageView;\n    private Image originalImage;\n    private FileActions fileActions;\n    private ImageAlgorithms imageAlgorithms;\n\n    @Override\n    public void start(Stage stage) {\n        stage.setTitle(\"Image processing\");\n        this.fileActions = new FileActions(stage);\n\n        Menu fileMenu = new Menu(\"File\");\n\n        MenuItem openBtn = new MenuItem(\"Open\");\n        openBtn.setOnAction(e -> {\n            this.fileActions.openImage(imageView);\n            this.imageAlgorithms = new ImageAlgorithms(imageView);\n            this.originalImage = this.imageView.getImage();\n        });\n        fileMenu.getItems().add(openBtn);\n\n        MenuItem saveBtn = new MenuItem(\"Save\");\n        saveBtn.setOnAction(e -> this.fileActions.saveImage(imageView));\n        fileMenu.getItems().add(saveBtn);\n\n        Menu editMenu = new Menu(\"Edit\");\n\n        MenuItem desaturationBtn = new MenuItem(\"Desaturation\");\n        desaturationBtn.setOnAction(e -> this.imageAlgorithms.desaturate());\n        editMenu.getItems().add(desaturationBtn);\n\n        MenuItem negativeBtn = new MenuItem(\"Negative\");\n        negativeBtn.setOnAction(e -> this.imageAlgorithms.createNegative());\n        editMenu.getItems().add(negativeBtn);\n\n        MenuItem contrastBrightnessSaturationMenuBtn = new MenuItem(\"Contrast / Brightness / Saturation\");\n        Slider brightnessSlider = new Slider(-1.0, 1.0, 0);\n        brightnessSlider.setShowTickLabels(true);\n        brightnessSlider.setShowTickMarks(true);\n        brightnessSlider.setMajorTickUnit(0.5);\n        brightnessSlider.setBlockIncrement(0.1);\n\n        Slider contrastSlider = new Slider(-1.0, 1.0, 0);\n        contrastSlider.setShowTickLabels(true);\n        contrastSlider.setShowTickMarks(true);\n        contrastSlider.setMajorTickUnit(0.5);\n        contrastSlider.setBlockIncrement(0.1);\n\n        Slider saturationSlider = new Slider(-1.0, 1.0, 0);\n        saturationSlider.setShowTickLabels(true);\n        saturationSlider.setShowTickMarks(true);\n        saturationSlider.setMajorTickUnit(0.5);\n        saturationSlider.setBlockIncrement(0.1);\n\n        contrastBrightnessSaturationMenuBtn.setOnAction(e -> {\n            VBox vbox = new VBox();\n            vbox.getChildren().addAll(new Label(\"Contrast\"), contrastSlider);\n            vbox.getChildren().addAll(new Label(\"Brightness\"), brightnessSlider);\n            vbox.getChildren().addAll(new Label(\"Saturation\"), saturationSlider);\n            Scene popupScene = new Scene(vbox, 300, 150);\n            Stage popupStage = new Stage();\n            popupStage.initOwner(stage);\n            popupStage.initModality(Modality.APPLICATION_MODAL);\n            popupStage.setScene(popupScene);\n            popupStage.showAndWait();\n        });\n\n        contrastSlider.valueProperty().addListener((observable, oldValue, newValue) -> {\n            double value = newValue.doubleValue();\n            this.imageAlgorithms.setContrast(value);\n        });\n        brightnessSlider.valueProperty().addListener((observable, oldValue, newValue) -> {\n            double value = newValue.doubleValue();\n            this.imageAlgorithms.setBrightness(value);\n        });\n        saturationSlider.valueProperty().addListener((observable, oldValue, newValue) -> {\n            double value = newValue.doubleValue();\n            this.imageAlgorithms.setSaturation(value);\n        });\n        editMenu.getItems().add(contrastBrightnessSaturationMenuBtn);\n\n        Menu histogramMenu = new Menu(\"Histogram\");\n\n        MenuItem redRadioBtn = new MenuItem(\"RED Histogram\");\n        redRadioBtn.setOnAction(e -> this.imageAlgorithms.displayHistogram(HistogramType.RED));\n        histogramMenu.getItems().add(redRadioBtn);\n\n        MenuItem greenRadioBtn = new MenuItem(\"GREEN Histogram\");\n        greenRadioBtn.setOnAction(e -> this.imageAlgorithms.displayHistogram(HistogramType.GREEN));\n        histogramMenu.getItems().add(greenRadioBtn);\n\n        MenuItem blueRadioBtn = new MenuItem(\"BLUE Histogram\");\n        blueRadioBtn.setOnAction(e -> this.imageAlgorithms.displayHistogram(HistogramType.BLUE));\n        histogramMenu.getItems().add(blueRadioBtn);\n\n        MenuItem avgRadioBtn = new MenuItem(\"AVG Histogram\");\n        avgRadioBtn.setOnAction(e -> this.imageAlgorithms.displayHistogram(HistogramType.AVERAGE));\n        histogramMenu.getItems().add(avgRadioBtn);\n\n        Menu toolsMenu = new Menu(\"Tools\");\n        MenuItem thresholdingBtn = new MenuItem(\"Threshold\");\n        Slider thresholdingSlider = new Slider(0, 255, 128);\n        thresholdingSlider.setShowTickLabels(true);\n        thresholdingSlider.setShowTickMarks(true);\n        thresholdingSlider.setMajorTickUnit(0.5);\n        thresholdingSlider.setBlockIncrement(0.1);\n        thresholdingSlider.valueProperty().addListener((observable, oldValue, newValue) -> {\n            double value = newValue.doubleValue();\n            this.imageAlgorithms.binarizeImage(value, originalImage);\n        });\n        thresholdingBtn.setOnAction(e -> {\n            VBox vbox = new VBox();\n            vbox.getChildren().addAll(new Label(\"Threshold\"), thresholdingSlider);\n            Scene popupScene = new Scene(vbox, 300, 150);\n            Stage popupStage = new Stage();\n            popupStage.initOwner(stage);\n            popupStage.initModality(Modality.APPLICATION_MODAL);\n            popupStage.setScene(popupScene);\n            popupStage.showAndWait();\n        });\n        toolsMenu.getItems().add(thresholdingBtn);\n\n        MenuItem otsuBtn = new MenuItem(\"Otsu Algorithm\");\n        otsuBtn.setOnAction(e -> {\n            double otsuValue = this.imageAlgorithms.otsuThreshold(originalImage);\n            this.imageAlgorithms.binarizeImage(otsuValue, originalImage);\n        });\n        toolsMenu.getItems().add(otsuBtn);\n\n        MenuItem cannyBtn = new MenuItem(\"Canny Edge Detection\");\n        cannyBtn.setOnAction(e -> {\n            CannyModal cannyModal = new CannyModal();\n            cannyModal.display(this.imageView, this.originalImage);\n        });\n        toolsMenu.getItems().add(cannyBtn);\n\n        MenuItem houghBtn = new MenuItem(\"Hough Transform\");\n        Slider houghSlider = new Slider(0, 1, 0.5);\n        houghSlider.setShowTickLabels(true);\n        houghSlider.setShowTickMarks(true);\n        houghSlider.setMajorTickUnit(0.5);\n        houghSlider.setBlockIncrement(0.1);\n        houghSlider.valueProperty().addListener((observable, oldValue, newValue) -> {\n            double thresholdFraction = newValue.doubleValue();\n            HoughTransform houghTransform = new HoughTransform(this.originalImage);\n            houghTransform.clearAccumulator();\n            houghTransform.addPoints(this.originalImage);\n\n            ImageView resultImageView =\n                    houghTransform.getLinesImageView(this.originalImage, thresholdFraction);\n\n            this.imageView.setImage(resultImageView.getImage());\n        });\n        houghBtn.setOnAction(e -> {\n            VBox vbox = new VBox();\n            vbox.getChildren().addAll(new Label(\"Threshold value\"), houghSlider);\n            Scene popupScene = new Scene(vbox, 300, 150);\n            Stage popupStage = new Stage();\n            popupStage.initOwner(stage);\n            popupStage.initModality(Modality.APPLICATION_MODAL);\n            popupStage.setScene(popupScene);\n            popupStage.showAndWait();\n        });\n        toolsMenu.getItems().add(houghBtn);\n\n        Menu filterMenu = new Menu(\"Filters\");\n\n        MenuItem averageBlurBtn = new MenuItem(\"Average Blur\");\n        averageBlurBtn.setOnAction(e -> this.imageAlgorithms.averageBlur());\n        filterMenu.getItems().add(averageBlurBtn);\n\n        MenuItem gaussianBlurBtn = new MenuItem(\"Gaussian Blur\");\n        gaussianBlurBtn.setOnAction(e -> this.imageAlgorithms.gaussianBlur());\n        filterMenu.getItems().add(gaussianBlurBtn);\n\n        MenuItem sharpenBtn = new MenuItem(\"Sharpen\");\n        sharpenBtn.setOnAction(e -> this.imageAlgorithms.sharpen());\n        filterMenu.getItems().add(sharpenBtn);\n\n        MenuItem sobelBtn = new MenuItem(\"Sobel Edge Detection\");\n        sobelBtn.setOnAction(e -> this.imageAlgorithms.sobelEdgeDetection());\n        filterMenu.getItems().add(sobelBtn);\n\n        MenuItem previtBtn = new MenuItem(\"Previt Edge Detection\");\n        previtBtn.setOnAction(e -> this.imageAlgorithms.previtEdgeDetection());\n        filterMenu.getItems().add(previtBtn);\n\n        MenuItem robertsBtn = new MenuItem(\"Roberts Edge Detection\");\n        robertsBtn.setOnAction(e ->this.imageAlgorithms.robertsEdgeDetection());\n        filterMenu.getItems().add(robertsBtn);\n\n        MenuItem laplaceBtn = new MenuItem(\"Laplace Edge Detection\");\n        robertsBtn.setOnAction(e ->this.imageAlgorithms.laplaceEdgeDetection());\n        filterMenu.getItems().add(laplaceBtn);\n\n        MenuItem LoGBtn = new MenuItem(\"LoG Edge Detection\");\n        robertsBtn.setOnAction(e ->this.imageAlgorithms.LoGEdgeDetection());\n        filterMenu.getItems().add(LoGBtn);\n\n\n        MenuBar mb = new MenuBar();\n        mb.getMenus().add(fileMenu);\n        mb.getMenus().add(editMenu);\n        mb.getMenus().add(histogramMenu);\n        mb.getMenus().add(toolsMenu);\n        mb.getMenus().add(filterMenu);\n\n        imageView = new ImageView();\n        imageView.setPreserveRatio(true);\n        imageView.setSmooth(true);\n        imageView.setCache(true);\n        VBox vb = new VBox(mb, imageView);\n        Scene scene = new Scene(vb, 750, 500);\n\n        double fitWidth = scene.getWidth() - mb.getHeight();\n        double fitHeight = scene.getHeight() - mb.getHeight();\n        imageView.setFitWidth(fitWidth);\n        imageView.setFitHeight(fitHeight);\n\n        stage.setScene(scene);\n        stage.show();\n    }\n\n    public static void main(String[] args) {\n        launch();\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/image_processing/ImageProcessingApplication.java b/src/main/java/com/example/image_processing/ImageProcessingApplication.java
+--- a/src/main/java/com/example/image_processing/ImageProcessingApplication.java	
++++ b/src/main/java/com/example/image_processing/ImageProcessingApplication.java	
+@@ -1,16 +1,13 @@
+ package com.example.image_processing;
+ 
+ import javafx.application.Application;
+-import javafx.scene.control.*;
+-import javafx.scene.image.*;
+ import javafx.scene.Scene;
+-import javafx.scene.control.Menu;
+-import javafx.scene.control.MenuBar;
+-import javafx.scene.control.MenuItem;
++import javafx.scene.control.*;
++import javafx.scene.image.Image;
++import javafx.scene.image.ImageView;
+ import javafx.scene.layout.VBox;
+-import javafx.scene.paint.Color;
+-import javafx.stage.Stage;
+ import javafx.stage.Modality;
++import javafx.stage.Stage;
+ 
+ public class ImageProcessingApplication extends Application {
+ 
+@@ -178,6 +175,30 @@
+         });
+         toolsMenu.getItems().add(houghBtn);
+ 
++        MenuItem harrisBtn = new MenuItem("Harris Transform");
++        Slider harrisSlider = new Slider(0, 1, 0.5);
++        harrisSlider.setShowTickLabels(true);
++        harrisSlider.setShowTickMarks(true);
++        harrisSlider.setMajorTickUnit(0.5);
++        harrisSlider.setBlockIncrement(0.1);
++        harrisSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
++            double threshold = newValue.doubleValue();
++            HarrisCornerDetection harrisCornerDetection = new HarrisCornerDetection(this.originalImage);
++            Image cornersImage = harrisCornerDetection.getCorners(0.01);
++            this.imageView.setImage(cornersImage);
++        });
++        harrisBtn.setOnAction(e -> {
++            VBox vbox = new VBox();
++            vbox.getChildren().addAll(new Label("Threshold harris value"), harrisSlider);
++            Scene popupScene = new Scene(vbox, 300, 150);
++            Stage popupStage = new Stage();
++            popupStage.initOwner(stage);
++            popupStage.initModality(Modality.APPLICATION_MODAL);
++            popupStage.setScene(popupScene);
++            popupStage.showAndWait();
++        });
++        toolsMenu.getItems().add(harrisBtn);
++
+         Menu filterMenu = new Menu("Filters");
+ 
+         MenuItem averageBlurBtn = new MenuItem("Average Blur");
+Index: src/main/java/com/example/image_processing/HarrisCornerDetection.java
+===================================================================
+diff --git a/src/main/java/com/example/image_processing/HarrisCornerDetection.java b/src/main/java/com/example/image_processing/HarrisCornerDetection.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/com/example/image_processing/HarrisCornerDetection.java	
+@@ -0,0 +1,143 @@
++package com.example.image_processing;
++
++import javafx.embed.swing.SwingFXUtils;
++import javafx.scene.image.Image;
++import javafx.scene.image.PixelReader;
++import javafx.scene.image.WritableImage;
++
++import java.awt.image.BufferedImage;
++
++public class HarrisCornerDetection {
++
++    private int[][] image;
++    private double threshold;
++
++    public HarrisCornerDetection(Image image) {
++        this.image = convertImageToPixels(image);
++    }
++
++    public WritableImage getCorners(double threshold) {
++        this.threshold = threshold;
++
++        int width = image.length;
++        int height = image[0].length;
++        int[][] corners = new int[width][height];
++
++        // Obliczanie gradientów poziomych i pionowych
++        int[][] dx = computeDerivative(image, true);
++        int[][] dy = computeDerivative(image, false);
++
++        // Obliczanie macierzy M dla każdego piksela
++        double[][][] M = computeM(dx, dy);
++
++        // Obliczanie miary Harrisa dla każdego piksela
++        for (int x = 0; x < width; x++) {
++            for (int y = 0; y < height; y++) {
++                double detM = M[x][y][0] * M[x][y][2] - M[x][y][1] * M[x][y][1];
++                double traceM = M[x][y][0] + M[x][y][2];
++                double cornerResponse = detM - 0.04 * traceM * traceM;
++                if (cornerResponse > threshold) {
++                    corners[x][y] = 255; // Piksel oznaczony jako narożnik
++                }
++            }
++        }
++
++        // Konwersja macierzy narożników na obraz
++        BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_GRAY);
++        for (int x = 0; x < width; x++) {
++            for (int y = 0; y < height; y++) {
++                int pixelValue = corners[x][y] << 16 | corners[x][y] << 8 | corners[x][y];
++                bufferedImage.setRGB(x, y, pixelValue);
++            }
++        }
++
++        return SwingFXUtils.toFXImage(bufferedImage, null);
++    }
++
++    private int[][] convertImageToPixels(Image image) {
++        int width = (int) image.getWidth();
++        int height = (int) image.getHeight();
++        int[][] pixels = new int[width][height];
++
++        PixelReader pixelReader = image.getPixelReader();
++        for (int x = 0; x < width; x++) {
++            for (int y = 0; y < height; y++) {
++                int color = pixelReader.getArgb(x, y);
++                int red = (color >> 16) & 0xff;
++                int green = (color >> 8) & 0xff;
++                int blue = color & 0xff;
++                int gray = (red + green + blue) / 3;
++                pixels[x][y] = gray;
++            }
++        }
++
++        return pixels;
++    }
++
++    private int[][] computeDerivative(int[][] image, boolean horizontal) {
++        int width = image.length;
++        int height = image[0].length;
++        int[][] derivative = new int[width][height];
++
++        int[][] filter = horizontal ? new int[][]{{-1, 0, 1}} : new int[][]{{-1}, {0}, {1}};
++
++        for (int x = 1; x < width - 2; x++) {
++            for (int y = 1; y < height - 2; y++) {
++                int sum = 0;
++                for (int i = -1; i <= 1; i++) {
++                    for (int j = -1; j <= 1; j++) {
++                        sum += image[x + i][y + j] * filter[i + 1][j + 1];
++                    }
++                }
++                derivative[x][y] = sum;
++            }
++        }
++
++        return derivative;
++    }
++
++
++    private double[][][] computeM(int[][] dx, int[][] dy) {
++        int width = dx.length;
++        int height = dx[0].length;
++        double[][][] M = new double[width][height][3];
++
++        for (int x = 0; x < width; x++) {
++            for (int y = 0; y < height; y++) {
++                double dx2 = dx[x][y] * dx[x][y];
++                double dy2 = dy[x][y] * dy[x][y];
++                double dxy = dx[x][y] * dy[x][y];
++                M[x][y][0] = dx2;
++                M[x][y][1] = dxy;
++                M[x][y][2] = dy2;
++            }
++        }
++
++        // Filtracja Gaussa dla macierzy M
++        double[][][] filteredM = new double[width][height][3];
++        double sigma = 1.4;
++        double twoSigma2 = 2.0 * sigma * sigma;
++
++        for (int x = 1; x < width - 1; x++) {
++            for (int y = 1; y < height - 1; y++) {
++                double sum0 = 0.0, sum1 = 0.0, sum2 = 0.0;
++
++                for (int i = -1; i <= 1; i++) {
++                    for (int j = -1; j <= 1; j++) {
++                        double weight = Math.exp(-(i * i + j * j) / twoSigma2);
++
++                        sum0 += weight * M[x + i][y + j][0];
++                        sum1 += weight * M[x + i][y + j][1];
++                        sum2 += weight * M[x + i][y + j][2];
++                    }
++                }
++
++                filteredM[x][y][0] = sum0;
++                filteredM[x][y][1] = sum1;
++                filteredM[x][y][2] = sum2;
++            }
++        }
++
++        return filteredM;
++    }
++}

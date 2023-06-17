@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3de9ad3d-3d54-4f74-93c9-e97d4190da78" name="Changes" comment="add pdf description" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="main" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="08" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2MJwfAwmd54XIQkfVcjSMeB2cbO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/jedrzejwesolowski/IdeaProjects/image_processing_2/src/main/java/com/example/image_processing",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.image_processing" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/image_processing" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="run main file" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.example.image_processing.ImageProcessingApplication" />
+      <module name="image_processing_2" />
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3de9ad3d-3d54-4f74-93c9-e97d4190da78" name="Changes" comment="" />
+      <created>1677499093877</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1677499093877</updated>
+      <workItem from="1677499094930" duration="3467000" />
+      <workItem from="1677598453951" duration="2935000" />
+      <workItem from="1678053059171" duration="1979000" />
+      <workItem from="1678093301529" duration="6829000" />
+      <workItem from="1678114921310" duration="6808000" />
+      <workItem from="1678369075581" duration="1991000" />
+      <workItem from="1679077933147" duration="507000" />
+      <workItem from="1679828737109" duration="4560000" />
+      <workItem from="1681335083576" duration="1726000" />
+      <workItem from="1681724901436" duration="3842000" />
+      <workItem from="1683539289878" duration="5776000" />
+      <workItem from="1683806621615" duration="3959000" />
+      <workItem from="1683890188468" duration="5863000" />
+      <workItem from="1684161288861" duration="11655000" />
+      <workItem from="1684246208790" duration="5662000" />
+      <workItem from="1685015296219" duration="2071000" />
+      <workItem from="1685052427860" duration="1546000" />
+      <workItem from="1685196419816" duration="17000" />
+      <workItem from="1685203507870" duration="1878000" />
+      <workItem from="1685353900508" duration="4180000" />
+      <workItem from="1685571604734" duration="1314000" />
+      <workItem from="1686154310948" duration="3448000" />
+      <workItem from="1686163416838" duration="1905000" />
+      <workItem from="1686311460275" duration="5290000" />
+      <workItem from="1686323983942" duration="171000" />
+      <workItem from="1686563473116" duration="2356000" />
+      <workItem from="1687005241181" duration="254000" />
+      <workItem from="1687005499461" duration="177000" />
+    </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1677604347434</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1677604347434</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add upload image action">
+      <created>1677604832384</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1677604832384</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add save method">
+      <created>1678054347842</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678054347842</updated>
+    </task>
+    <task id="LOCAL-00004" summary="little reformat">
+      <created>1678094419871</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678094419871</updated>
+    </task>
+    <task id="LOCAL-00005" summary="uiDesigner.xml change">
+      <created>1678099531728</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678099531728</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add negative function">
+      <created>1678101822971</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678101822971</updated>
+    </task>
+    <task id="LOCAL-00007" summary="move negative function to ImageAlgorithms class">
+      <created>1678102179268</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1678102179268</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add image desaturation">
+      <created>1678102776038</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678102776038</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add brightness slider">
+      <created>1678117833136</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1678117833136</updated>
+    </task>
+    <task id="LOCAL-00010" summary="rearrange FileActions class and move open file to separate method">
+      <created>1678118703077</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1678118703077</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add logic to brightness slider">
+      <created>1678130607196</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1678130607196</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add contrast slider">
+      <created>1678369815711</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1678369815711</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add saturation slider">
+      <created>1678370106037</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1678370106037</updated>
+    </task>
+    <task id="LOCAL-00014" summary="rename variables">
+      <created>1678370179376</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1678370179376</updated>
+    </task>
+    <task id="LOCAL-00015" summary="simplify displayHistogram method">
+      <created>1679831446156</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1679831446156</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add binarizeImage method">
+      <created>1683809485005</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1683809485005</updated>
+    </task>
+    <task id="LOCAL-00017" summary="move HistogramType to separate file">
+      <created>1683810002338</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1683810002338</updated>
+    </task>
+    <task id="LOCAL-00018" summary="implement Otsu Algorithm">
+      <created>1683912167577</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1683912167577</updated>
+    </task>
+    <task id="LOCAL-00019" summary="implement CannyEdgeDetection Algorithm">
+      <created>1684175775703</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1684175775703</updated>
+    </task>
+    <task id="LOCAL-00020" summary="add CannyModal">
+      <created>1684178256540</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1684178256540</updated>
+    </task>
+    <task id="LOCAL-00021" summary="add slider for HoughTransform">
+      <created>1684248381116</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1684248381116</updated>
+    </task>
+    <task id="LOCAL-00022" summary="add pdf description">
+      <created>1685016083866</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1685016083866</updated>
+    </task>
+    <task id="LOCAL-00023" summary="add pdf description lab 6">
+      <created>1685016402672</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1685016402672</updated>
+    </task>
+    <task id="LOCAL-00024" summary="add pdf description lab 7">
+      <created>1685016734902</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1685016734902</updated>
+    </task>
+    <task id="LOCAL-00025" summary="fix HoughTransform algorithm">
+      <created>1685357329106</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1685357329106</updated>
+    </task>
+    <task id="LOCAL-00026" summary="fix HoughTransform algorithm">
+      <created>1685357590137</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1685357590137</updated>
+    </task>
+    <task id="LOCAL-00027" summary="delete unnecessary comments">
+      <created>1686154497025</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1686154497025</updated>
+    </task>
+    <task id="LOCAL-00028" summary="harris corner detection">
+      <created>1686324023134</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1686324023134</updated>
+    </task>
+    <task id="LOCAL-00029" summary="add jupyter notebook of alex-net impl">
+      <created>1686324132427</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1686324132427</updated>
+    </task>
+    <task id="LOCAL-00030" summary="improvements Harris">
+      <created>1686564570895</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1686564570895</updated>
+    </task>
+    <task id="LOCAL-00031" summary="file structure refactor">
+      <created>1686564959014</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1686564959014</updated>
+    </task>
+    <task id="LOCAL-00032" summary="add pd description">
+      <created>1686566405691</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1686566405691</updated>
+    </task>
+    <task id="LOCAL-00033" summary="add pdf description">
+      <created>1686566455149</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1686566455149</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="move negative function to ImageAlgorithms class" />
+    <MESSAGE value="add image desaturation" />
+    <MESSAGE value="add brightness slider" />
+    <MESSAGE value="rearrange FileActions class and move open file to separate method" />
+    <MESSAGE value="add logic to brightness slider" />
+    <MESSAGE value="add contrast slider" />
+    <MESSAGE value="add saturation slider" />
+    <MESSAGE value="rename variables" />
+    <MESSAGE value="simplify displayHistogram method" />
+    <MESSAGE value="add binarizeImage method" />
+    <MESSAGE value="move HistogramType to separate file" />
+    <MESSAGE value="implement Otsu Algorithm" />
+    <MESSAGE value="implement CannyEdgeDetection Algorithm" />
+    <MESSAGE value="add CannyModal" />
+    <MESSAGE value="add slider for HoughTransform" />
+    <MESSAGE value="add pdf description lab 6" />
+    <MESSAGE value="add pdf description lab 7" />
+    <MESSAGE value="fix HoughTransform algorithm" />
+    <MESSAGE value="delete unnecessary comments" />
+    <MESSAGE value="harris corner detection" />
+    <MESSAGE value="add jupyter notebook of alex-net impl" />
+    <MESSAGE value="improvements Harris" />
+    <MESSAGE value="file structure refactor" />
+    <MESSAGE value="add pd description" />
+    <MESSAGE value="add pdf description" />
+    <option name="LAST_COMMIT_MESSAGE" value="add pdf description" />
+  </component>
+</project>
